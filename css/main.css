@@ -59,10 +59,9 @@ main {
     background: white;
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 30px 20px;
     position: relative;
+    margin: 15% auto auto;
 }
 
 .modal-close {
