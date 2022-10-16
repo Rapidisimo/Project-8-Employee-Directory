@@ -1,5 +1,5 @@
 let employees = [];
-const urlAPI =`https://randomuser.me/api/?results=12&inc=name, picture,email, location, phone, dob &noinfo &nat=US`;
+const urlAPI =`https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
 const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
@@ -60,7 +60,7 @@ function displayModal(index) {
         <p class="address">${city}</p>
         <hr />
         <p>${phone}</p>
-        <p class="address">${street}, ${state} ${postcode}</p>
+        <p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
         <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
     </div>
     `;
