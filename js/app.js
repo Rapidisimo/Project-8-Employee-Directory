@@ -68,6 +68,8 @@ function displayModal(index) {
     
     overlay.classList.remove("hidden");
     modalContainer.innerHTML = modalHTML;
+    // Fix for blank modals because of search functionality
+    modalContainer.style.display = null;
 }
 
 // ------------------------------------------
