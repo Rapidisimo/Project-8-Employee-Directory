@@ -150,6 +150,10 @@ main {
     main {
         grid-template-columns: 1fr 1fr;
     }
+    .modal {
+        position: relative;
+        margin: 15% auto auto;
+    }
 
 }
 
@@ -179,6 +183,11 @@ main {
     .profile-data .email {
         font-size: 1em;
     }
+
+    .modal {
+    position: relative;
+    margin: 15% auto auto;
+}
 
     .text-container .email {
         font-size: 1em;
