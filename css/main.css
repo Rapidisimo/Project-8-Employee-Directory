@@ -70,7 +70,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(100, 100, 100, 0.4);
+    background: rgba(100, 100, 100, 0.0);
 }
 
 .modal {
@@ -80,8 +80,8 @@ main {
     border: 1px solid #888E92;
     border-radius: 10px;
     padding: .6em;
-    position: relative;
-    margin: 15% auto auto;
+    position: fixed;
+    margin: 15vh 10vw;
     display: grid;
     grid-template-columns: 10% 1fr 10%;
     grid-template-rows: 10% 1fr;
@@ -140,7 +140,6 @@ main {
     border: none;
     text-decoration: none;
     text-align: center;
-    box-shadow: 0;
     font-size: 1.2em;
     cursor: pointer;
     border-radius: 5px;
