@@ -110,7 +110,6 @@ leftArrow.addEventListener('click', e => {
         cardIndex -= 1;
     } else {cardIndex = 11}
     displayModal(cardIndex);
-    console.log(cardIndex);
 });
 
 // Modal right arrow to cycle through employees
@@ -120,5 +119,4 @@ rightArrow.addEventListener('click', e => {
         cardIndex += 1;
     } else {cardIndex = 0}
     displayModal(cardIndex);
-    console.log(cardIndex);
 });

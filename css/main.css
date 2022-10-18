@@ -2,11 +2,13 @@ body {
     position: relative;
     font-family: 'Roboto', sans-serif;
     padding: 1.6em;
+    margin: 0 auto;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 1em;
 }
 
 header h1 {
@@ -14,7 +16,12 @@ header h1 {
     text-transform: uppercase;
     font-size: 1.2em;
     font-weight: 500;
+    text-align: center;
     margin-bottom: 1em;
+}
+
+nav input {
+    width: 100%;
 }
 
 .email, .address {
@@ -24,17 +31,22 @@ header h1 {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1em;
+    margin-bottom: 1em;
 }
 
 .card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    grid-template-columns: 1fr 70%;
     align-items: center;
     border: 1px solid rgb(223, 223, 223);
     border-radius: 5px;
-    padding: 1em;
+    padding: .6em;
+}
+.card:active {
+    background-color: #f1f1f1;
 }
 .card h2 {
     font-size: 1em;
@@ -48,6 +60,9 @@ main {
 .profile-photo {
     border-radius: 50%;
 }
+.profile-data .email {
+    font-size: .8em;
+}
 
 .overlay {
     position: absolute;
@@ -59,7 +74,7 @@ main {
 }
 
 .modal {
-    width: 460px;
+    max-width: 360px;
     text-align: center;
     background: white;
     border: 1px solid #888E92;
@@ -68,15 +83,17 @@ main {
     position: relative;
     margin: 15% auto auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: 10% 1fr;
 }
 .modal-content {
     display: grid;
     place-items: center;
     /* gap: 1em; */
     grid-column-start: 2;
+    grid-row-start: 2;
     /* padding: 1.2em; */
-    margin: 0 3em;
+    /* margin: 0 3em; */
 }
 .text-container {
     padding: 1em;
@@ -93,29 +110,30 @@ main {
     margin-bottom: 1em;
     border: 1px solid #c6c7c8;
 }
+.text-container .email {
+    font-size: .8em;
+}
 .l-arrow {
-    display: flex;
-    align-items: center;
-    padding: .4em;
-    font-size: 1.8em;
+    grid-column-start: 1;
+    grid-row-start: 2;
 }
 .r-arrow {
-    display: flex;
-    align-items: center;
     grid-column-start: 3;
-    /* padding: .6em; */
+    grid-row-start: 2;
+}
+.l-arrow,
+.r-arrow {
+    place-self: center;
     font-size: 1.8em;
 }
 
 .modal-close {
-    display: flex;
-    grid-column-start: 4;
+    grid-column: 3 / span 3;
+    grid-row-start: 1;
     /* position: absolute; */
     /* right: 15px; */
     /* top: 5px; */
-    margin-bottom: 550px;
     padding: .3em;
-    cursor: pointer;
     background-color: white;
 }
  button {
@@ -124,4 +142,47 @@ main {
     text-align: center;
     box-shadow: 0;
     font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: .4em;
+}
+
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    body {
+        max-width: 1440px;
+    }
+    
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+        
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .card {
+        grid-template-columns: 1fr 1fr;
+        padding: 1em;
+    }
+    .card:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+    .profile-data .email {
+        font-size: 1em;
+    }
+
+    .text-container .email {
+        font-size: 1em;
+    }
+    
 }
