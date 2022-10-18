@@ -4,6 +4,10 @@ const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
+const search = document.getElementById('searchbox');
+const leftArrow = document.querySelector(".l-arrow");
+const rightArrow = document.querySelector(".r-arrow");
+let cardIndex = 0;
 
 // ------------------------------------------
 //  FETCH FUNCTIONS
@@ -67,7 +71,6 @@ function displayModal(index) {
     
     overlay.classList.remove("hidden");
     modalContainer.innerHTML = modalHTML;
-    console.log('displayModal-index')
 }
 
 // ------------------------------------------
@@ -77,14 +80,46 @@ gridContainer.addEventListener('click', e => {
     if (e.target !== gridContainer) {
         const card = e.target.closest(".card");
         const index = card.getAttribute('data-index');
+        cardIndex = index;
         displayModal(index);
-        console.log('gridContainer-Click');
     }
 });
 
 modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
 });
+
+search.addEventListener('keyup', e => {
+    let currentValue = e.target.value.toLowerCase();
+    let employeeNames = document.querySelectorAll('.name');
+    employeeNames.forEach(employeeCard => {
+        if(employeeCard.textContent.toLocaleLowerCase().includes(currentValue)) {
+            employeeCard.parentNode.parentNode.style.display = 'grid';
+        } else {
+            employeeCard.parentNode.parentNode.style.display = 'none';
+        }
+    })
+});
+
+leftArrow.addEventListener('click', e => {
+    cardIndex = parseInt(cardIndex);
+    if(cardIndex !== 0) {
+        cardIndex -= 1;
+    } else {cardIndex = 11}
+    displayModal(cardIndex);
+    console.log(cardIndex);
+});
+
+
+rightArrow.addEventListener('click', e => {
+    cardIndex = parseInt(cardIndex);
+    if(cardIndex !== 11) {
+        cardIndex += 1;
+    } else {cardIndex = 0}
+    displayModal(cardIndex);
+    console.log(cardIndex);
+});
+
 
 // ------------------------------------------
 //  POST DATA
