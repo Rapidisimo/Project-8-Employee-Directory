@@ -18,9 +18,6 @@ fetch(urlAPI)
   .then(displayEmployees)
   .catch(err => console.log(err))
 
-
-
-
 // ------------------------------------------
 //  HELPER FUNCTIONS
 // ------------------------------------------
@@ -76,6 +73,8 @@ function displayModal(index) {
 // ------------------------------------------
 //  EVENT LISTENERS
 // ------------------------------------------
+
+// Modal Window with correct data
 gridContainer.addEventListener('click', e => {
     if (e.target !== gridContainer) {
         const card = e.target.closest(".card");
@@ -84,11 +83,12 @@ gridContainer.addEventListener('click', e => {
         displayModal(index);
     }
 });
-
+// Close modal window
 modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
 });
 
+// Search functionality
 search.addEventListener('keyup', e => {
     let currentValue = e.target.value.toLowerCase();
     let employeeNames = document.querySelectorAll('.name');
@@ -101,6 +101,7 @@ search.addEventListener('keyup', e => {
     })
 });
 
+// Modal left arrow to cycle through employees
 leftArrow.addEventListener('click', e => {
     cardIndex = parseInt(cardIndex);
     if(cardIndex !== 0) {
@@ -110,7 +111,7 @@ leftArrow.addEventListener('click', e => {
     console.log(cardIndex);
 });
 
-
+// Modal right arrow to cycle through employees
 rightArrow.addEventListener('click', e => {
     cardIndex = parseInt(cardIndex);
     if(cardIndex !== 11) {
@@ -119,9 +120,3 @@ rightArrow.addEventListener('click', e => {
     displayModal(cardIndex);
     console.log(cardIndex);
 });
-
-
-// ------------------------------------------
-//  POST DATA
-// ------------------------------------------
-
