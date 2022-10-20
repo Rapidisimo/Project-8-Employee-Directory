@@ -70,7 +70,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(100, 100, 100, 0.0);
+    background: rgba(100, 100, 100, 0.4);
 }
 
 .modal {
@@ -158,8 +158,9 @@ main {
 }
 
 @media (min-width: 1024px) {
-    body {
+    .wrapper {
         max-width: 1440px;
+        margin: 0 auto;
     }
     
     header {

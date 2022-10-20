@@ -51,7 +51,7 @@ function displayModal(index) {
     let { name, dob, phone, email, location: { city, street, state, postcode
     }, picture } = employees[index];
 
-    let date = new Date(dob.date);
+    let date = new Date(dob.date).toLocaleDateString('en-us', {year:"2-digit", month:"2-digit", day:"2-digit"});
 
     const modalHTML = `
     <img src="${picture.large}" alt="profile-photo" class="profile-photo">
@@ -62,7 +62,7 @@ function displayModal(index) {
         <hr />
         <p>${phone}</p>
         <p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
-        <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+        <p>Birthday: ${date}</p>
     </div>
     `;
     
